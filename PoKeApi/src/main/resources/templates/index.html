@@ -1,19 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head th:insert="~{layout/plantilla :: head}"></head>
 <body>
-    <h1 th:text="Bienbenido"></h1>
-    <form th:action="@{/traer}" method="get">
+    <div th:if="${Pokemon == null}">
+        <h1 class="h1color" th:text="Bienvenido"></h1>
+    </div>
+    <form class="form-search" th:action="@{/traer}" method="get">
         <input type="text" placeholder="Search" name="nombre">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
     <div th:if="${Pokemon != null}">
-        <p th:text="${Pokemon.getName()}"></p>
+        <h2 class="H2-Pokemon-name" th:text="${Pokemon.getName()}"></h2>
+        <div class="container">
+            <div class="container-types">
+            <div class="conatiner-each">
+                <div  th:each="types : ${Pokemon.getTypes()}">
+                    <div>
+                        <p th:text="${types.getType().getName()}"></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="container">
+            <span class="title-span">Abilities</span>
+            <div class="conatiner-each">
+                <div  th:each="ability : ${Pokemon.getAbilities()}">
+                    <div>
+                        <p th:text="${ability.getAbility().getName()}"></p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
     </div>
 </body>
 </html>

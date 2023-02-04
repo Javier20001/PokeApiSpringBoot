@@ -1,0 +1,25 @@
+.h1color{
+    text-align: center;
+}
+
+.form-search{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.H2-Pokemon-name{
+    text-align: center;
+}
+
+.title-span{
+    margin-left: 20px;
+}
+
+.conatiner-each{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
