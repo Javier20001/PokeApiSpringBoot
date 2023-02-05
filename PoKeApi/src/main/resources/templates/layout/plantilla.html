@@ -16,4 +16,40 @@
     <!-- JS -->
     <title>Inicio</title>
 </head>
+
+<body >
+    <section th:fragment="abilities">
+        <div class="container">
+            <span class="title-span">Abilities</span>
+            <div class="conatiner-each">
+                <div  th:each="ability : ${Pokemon.getAbilities()}">
+                    <div>
+                        <p th:text="${ability.getAbility().getName()}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section th:fragment="niveles">
+        <div class="contenedor">
+            <div class="container-each-niveles">
+                <div  th:each="stats : ${Pokemon.getStats()}">
+                    <div class="stat">
+                        <div class="stat-text">
+                            <h3 th:text="${stats.getStat().getName()}"></h3>
+                            <div class="container-stat-number">
+                                <p class="stat-number" th:text="${stats.getBase_stat()}"></p>
+                            </div>
+                        </div>
+                        <div class="barra">
+                            <h1></h1>
+                            <div class="progreso" th:style="'width:'+(${stats.getBase_stat()})+'%;  background:'+(${Pokemon.getColor()})+';'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
 </html>

@@ -16,6 +16,7 @@ public class Pokemon {
     private List<PokemonTypes> types;
     private List<PokemonStats> stats;
     private Sprite sprites;
+    private String color;
 
     public String getName() {
         return name;
@@ -85,6 +86,15 @@ public class Pokemon {
         this.stats = stats;
     }
 
+
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -96,6 +106,7 @@ public class Pokemon {
             ", weight='" + getWeight() + "'" +
             ", Sprites='" + getSprites() + "'" +
             ", Stats='" + getStats() + "'" +
+            ", color='" + getColor() + "'" +
             "}";
     }
 }

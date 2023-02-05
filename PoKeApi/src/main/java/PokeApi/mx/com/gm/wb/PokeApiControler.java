@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 
 import PokeApi.mx.com.gm.domain.Pokemon;
+import PokeApi.mx.com.gm.domain.stat.PokemonStats;
 import PokeApi.mx.com.gm.service.PokemonService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,6 +24,9 @@ public class PokeApiControler {
     @GetMapping("/traer")
     public String traerPersonas(String nombre , Model model){
         Pokemon p = pokemonService.traerPokemon(nombre);
+        for (PokemonStats stats : p.getStats()) {
+            stats.getStat().abrebiatura(stats.getStat().getName());
+        }
         model.addAttribute("Pokemon", p);
         return "index";
     }

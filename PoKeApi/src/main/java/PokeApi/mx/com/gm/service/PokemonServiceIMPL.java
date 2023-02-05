@@ -5,16 +5,42 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.AbstractMap;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import PokeApi.mx.com.gm.domain.Pokemon;
+import PokeApi.mx.com.gm.domain.type.PokemonTypes;
 
 @Service
 public class PokemonServiceIMPL implements PokemonService {
 
     private static HttpClient httpcliente = HttpClient.newBuilder().version(HttpClient.Version.HTTP_2).build();
+    Map<String , String> pokemonTypeColor = Stream.of(
+        new AbstractMap.SimpleEntry<>("bug", "#ace600"),
+        new AbstractMap.SimpleEntry<>("dark", "#604020"),
+        new AbstractMap.SimpleEntry<>("dragon", "#944dff"),
+        new AbstractMap.SimpleEntry<>("ghost", "#7733ff"),
+        new AbstractMap.SimpleEntry<>("rock", "#cc9900"),
+        new AbstractMap.SimpleEntry<>("psychic", "#ff4da6"),
+        new AbstractMap.SimpleEntry<>("flying", "#d580ff"),
+        new AbstractMap.SimpleEntry<>("ground", "#ffd966"),
+        new AbstractMap.SimpleEntry<>("poison", "#b800e6"),
+        new AbstractMap.SimpleEntry<>("fight", "#b30000"),
+        new AbstractMap.SimpleEntry<>("ice", "#66ffff"),
+        new AbstractMap.SimpleEntry<>("grass", "#00e600"),
+        new AbstractMap.SimpleEntry<>("electric", "#e6e600"),
+        new AbstractMap.SimpleEntry<>("water", "#00aaff"),
+        new AbstractMap.SimpleEntry<>("fire", "#ff6600"),
+        new AbstractMap.SimpleEntry<>("fairy", "#ff99cc"),
+        new AbstractMap.SimpleEntry<>("steel", "#8c8c8c"),
+        new AbstractMap.SimpleEntry<>("normal", "#85adad"))
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
     @Override
     public Pokemon traerPokemon(String valor) {
@@ -25,11 +51,24 @@ public class PokemonServiceIMPL implements PokemonService {
             final HttpResponse<String> response = httpcliente.send(requestPost, HttpResponse.BodyHandlers.ofString());
             Gson gson = new Gson();
             p = gson.fromJson(response.body(), Pokemon.class);
-            System.out.println(p.getStats());
+            setColorToPokemon(p);
+            System.out.println(p.getTypes());
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
         return p;
+    }
+
+    private void setColorToPokemon(Pokemon pokemon){
+        pokemonTypeColor.forEach((key, value)->{
+            for (PokemonTypes pokemonType : pokemon.getTypes()) {
+                if(pokemonType.getType().getName().equals(key)){
+                    pokemonType.getType().setColor(value);
+                }
+            }
+        });
+
+        pokemon.setColor(pokemon.getTypes().get(0).getType().getColor());
     }
 
 }

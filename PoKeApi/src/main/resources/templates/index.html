@@ -2,37 +2,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head th:insert="~{layout/plantilla :: head}"></head>
 <body>
-    <div th:if="${Pokemon == null}">
-        <h1 class="h1color" th:text="Bienvenido"></h1>
-    </div>
-    <form class="form-search" th:action="@{/traer}" method="get">
-        <input type="text" placeholder="Search" name="nombre">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-    <div th:if="${Pokemon != null}">
-        <h2 class="H2-Pokemon-name" th:text="${Pokemon.getName()}"></h2>
-        <div class="container">
-            <div class="container-types">
-            <div class="conatiner-each">
-                <div  th:each="types : ${Pokemon.getTypes()}">
-                    <div>
-                        <p th:text="${types.getType().getName()}"></p>
-                    </div>
-                </div>
-            </div>
-            </div>
-        <div class="container">
-            <span class="title-span">Abilities</span>
-            <div class="conatiner-each">
-                <div  th:each="ability : ${Pokemon.getAbilities()}">
-                    <div>
-                        <p th:text="${ability.getAbility().getName()}"></p>
-                    </div>
-                </div>
-            </div>
-            
+    <div class="body-container">
+        <div th:if="${Pokemon == null}">
+            <h1 class="h1color" th:text="Bienvenido"></h1>
         </div>
-        
+        <form class="form-search" th:action="@{/traer}" method="get">
+            <input type="text" placeholder="Search" name="nombre">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <div th:if="${Pokemon != null}">
+            <div class="container-img" th:style="'background-color:'+(${Pokemon.getColor()})+';'">
+                <img class="pokemon-img" th:src="${Pokemon.getSprites().getFront_default()}" >
+            </div>
+            <h2 class="H2-Pokemon-name" th:text="${Pokemon.getName()}"></h2>
+            <div class="container">
+                <div class="container-types">
+                <div class="conatiner-each">
+                    <div  th:each="types : ${Pokemon.getTypes()}">
+                        <div th:style="'background-color:'+(${types.getType().getColor()})+';'">
+                            <p th:text="${types.getType().getName()}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section th:insert="~{layout/plantilla :: abilities}"></section>
+            <section th:insert="~{layout/plantilla :: niveles}"></section>
+        </div>
     </div>
 </body>
 </html>
