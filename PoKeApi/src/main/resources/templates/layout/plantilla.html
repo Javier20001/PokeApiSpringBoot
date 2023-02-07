@@ -18,19 +18,6 @@
 </head>
 
 <body >
-    <section th:fragment="abilities">
-        <div class="container">
-            <span class="title-span">Abilities</span>
-            <div class="conatiner-each">
-                <div  th:each="ability : ${Pokemon.getAbilities()}">
-                    <div>
-                        <p th:text="${ability.getAbility().getName()}"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section th:fragment="niveles">
         <div class="contenedor">
             <div class="container-each-niveles">
@@ -49,6 +36,27 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section th:fragment="TableAbilities">
+        <div class="container">
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Ability</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="abilities : ${Pokemon.getAbilities()}">
+                        <td th:text="${abilities.getAbility().getName()}"></td>
+                        <div th:each="ability_info: ${abilities.getAbility().getEffect_entries()}">
+                            <td th:if="${ability_info.getLanguage().getName()} == 'en'" th:text="${ability_info.getShort_effect()}" >#</td>
+                        </div>
+                    </tr>
+                </tbody>
+              </table>
         </div>
     </section>
 </body>

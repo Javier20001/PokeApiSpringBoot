@@ -27,6 +27,7 @@ public class PokeApiControler {
         for (PokemonStats stats : p.getStats()) {
             stats.getStat().abrebiatura(stats.getStat().getName());
         }
+        // p.getAbilities().get(0).getAbility().getEffect_entries().get(1).getShort_effect()
         model.addAttribute("Pokemon", p);
         return "index";
     }

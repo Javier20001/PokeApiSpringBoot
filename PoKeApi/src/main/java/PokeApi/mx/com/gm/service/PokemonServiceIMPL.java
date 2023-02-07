@@ -6,7 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.AbstractMap;
-import java.util.HashMap;
+
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import PokeApi.mx.com.gm.domain.Pokemon;
+import PokeApi.mx.com.gm.domain.ability.Ability;
+import PokeApi.mx.com.gm.domain.ability.PokemonAbilities;
 import PokeApi.mx.com.gm.domain.type.PokemonTypes;
 
 @Service
@@ -52,7 +54,8 @@ public class PokemonServiceIMPL implements PokemonService {
             Gson gson = new Gson();
             p = gson.fromJson(response.body(), Pokemon.class);
             setColorToPokemon(p);
-            System.out.println(p.getTypes());
+            setAbilities(p);
+            System.out.println(p.getAbilities());
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -71,4 +74,18 @@ public class PokemonServiceIMPL implements PokemonService {
         pokemon.setColor(pokemon.getTypes().get(0).getType().getColor());
     }
 
+    private void setAbilities(Pokemon p){
+        Ability ability = null;
+        for (PokemonAbilities Pokemon_ability: p.getAbilities()) {
+            final HttpRequest requestPost = HttpRequest.newBuilder().GET()
+                .uri(URI.create(Pokemon_ability.getAbility().getUrl())).build();
+            try {
+                final HttpResponse<String> response = httpcliente.send(requestPost, HttpResponse.BodyHandlers.ofString());
+                Gson gson = new Gson();
+                Pokemon_ability.setAbility(gson.fromJson(response.body(), Ability.class));
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }   
+        }
+    }
 }
