@@ -19,7 +19,7 @@
                 <div class="container-types">
                 <div class="conatiner-each">
                     <div  th:each="types : ${Pokemon.getTypes()}">
-                        <div th:style="'background-color:'+(${types.getType().getColor()})+';'">
+                        <div class="containerType" th:style="'background-color:'+(${types.getType().getColor()})+';'">
                             <p th:text="${types.getType().getName()}"></p>
                         </div>
                     </div>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" th:href="@{css/styles.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{css/stylesSinSas.css}">
 
     <!--extencion den font  -->
     <script src="https://kit.fontawesome.com/6de3165734.js" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
 
     <section th:fragment="TableAbilities">
         <div class="container">
-            <table class="table table-dark">
+            <table class="table table-dark" >
                 <thead>
                   <tr>
                     <th scope="col">Ability</th>
@@ -49,7 +49,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="abilities : ${Pokemon.getAbilities()}">
+                    <tr class="sinBorde" th:each="abilities : ${Pokemon.getAbilities()}">
                         <td th:text="${abilities.getAbility().getName()}"></td>
                         <div th:each="ability_info: ${abilities.getAbility().getEffect_entries()}">
                             <td th:if="${ability_info.getLanguage().getName()} == 'en'" th:text="${ability_info.getShort_effect()}" >#</td>
