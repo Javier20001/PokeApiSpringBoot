@@ -1,5 +1,4 @@
 .body-container{
-    /* background-image: url('https://i.pinimg.com/564x/c9/13/40/c91340f832096e32b50c593c77508295.jpg'); */
     background-color: #595959;
     height: 100vh;
 }
@@ -62,10 +61,22 @@
 }
 
 .progreso{
+    width: var(--w);
     position: absolute;
     height: 100%;
     border-radius: 10px;
+    background: var(--bg);
     bottom: 0;
+    animation: Aumentar 3s ease;
+}
+
+@keyframes Aumentar{
+    0%{width: 0%;}
+    100%{width: var(--w);}
+}
+
+.barra:hover .progreso{
+    animation: Aumentar 3s ease;
 }
 
 .container-img{
@@ -88,14 +99,20 @@ h3{
     display: flex;
     height: 30px;
     width: 60px;
-    background-color: #00e600;
     justify-content: center;
     border-radius: 5px;
-    margin: 0px 10px 0px;
+    margin: 0px 10px 10px;
 }
 
-.table{
-    background: #595959;
+
+.ability_info:hover{
+    font-size: 0px;
+}
+
+.ability_info:hover:after{
+    content: attr(data-hover);
+    font-size: 15px;
+
 }
 
 .sinBorde td{
@@ -103,3 +120,9 @@ h3{
     border-bottom:1px solid #000;
 
 }
+.Table{
+    background:#595959 ;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+

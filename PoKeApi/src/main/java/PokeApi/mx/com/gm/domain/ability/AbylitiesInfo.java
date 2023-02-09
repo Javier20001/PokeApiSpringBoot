@@ -1,6 +1,7 @@
 package PokeApi.mx.com.gm.domain.ability;
 
 public class AbylitiesInfo {
+    private String effect;
     private String short_effect;
     private Language language;
 
@@ -20,9 +21,18 @@ public class AbylitiesInfo {
         this.language = language;
     }
 
+    public String getEffect() {
+        return this.effect;
+    }
+
+    public void setEffect(String effect) {
+        this.effect = effect;
+    }
+
     @Override
     public String toString() {
         return "{" +
+            ", short_effect='" + getEffect() + "'" +
             ", short_effect='" + getShort_effect() + "'" +
             "}";
     }

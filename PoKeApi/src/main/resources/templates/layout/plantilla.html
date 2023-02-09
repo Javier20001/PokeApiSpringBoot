@@ -30,8 +30,8 @@
                             </div>
                         </div>
                         <div class="barra">
-                            <h1></h1>
-                            <div class="progreso" th:style="'width:'+(${stats.getBase_stat()})+'%;  background:'+(${Pokemon.getColor()})+';'"></div>
+                            <div class="progreso" th:style="'--w:'+(${stats.getBase_stat()})+'%; --bg:'+(${Pokemon.getColor()})+';'"></div>
+                            <!--  -->
                         </div>
                     </div>
                 </div>
@@ -41,18 +41,18 @@
 
     <section th:fragment="TableAbilities">
         <div class="container">
-            <table class="table table-dark" >
+            <table class="Table" >
                 <thead>
                   <tr>
-                    <th scope="col">Ability</th>
-                    <th scope="col">Description</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
                     <tr class="sinBorde" th:each="abilities : ${Pokemon.getAbilities()}">
-                        <td th:text="${abilities.getAbility().getName()}"></td>
+                        <td class="ability_name" th:text="${abilities.getAbility().getName()}"></td>
                         <div th:each="ability_info: ${abilities.getAbility().getEffect_entries()}">
-                            <td th:if="${ability_info.getLanguage().getName()} == 'en'" th:text="${ability_info.getShort_effect()}" >#</td>
+                            <td class="td_ability_info" th:if="${ability_info.getLanguage().getName()} == 'en'" th:text="${ability_info.getShort_effect()}" th:data-hover="${ability_info.getEffect()}"></td>
                         </div>
                     </tr>
                 </tbody>
