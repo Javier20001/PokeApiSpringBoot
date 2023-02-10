@@ -46,6 +46,7 @@ public class PokemonServiceIMPL implements PokemonService {
 
     @Override
     public Pokemon traerPokemon(String valor) {
+        valor = valor.replace(" ", "");
         Pokemon p = null;
         final HttpRequest requestPost = HttpRequest.newBuilder().GET()
                 .uri(URI.create("https://pokeapi.co/api/v2/pokemon/" + valor)).build();

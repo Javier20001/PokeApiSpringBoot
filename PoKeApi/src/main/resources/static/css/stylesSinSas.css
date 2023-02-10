@@ -105,11 +105,11 @@ h3{
 }
 
 
-.ability_info:hover{
+.td_ability_info:hover{
     font-size: 0px;
 }
 
-.ability_info:hover:after{
+.td_ability_info:hover:after{
     content: attr(data-hover);
     font-size: 15px;
 

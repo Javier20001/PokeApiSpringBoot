@@ -50,7 +50,7 @@
                 </thead>
                 <tbody>
                     <tr class="sinBorde" th:each="abilities : ${Pokemon.getAbilities()}">
-                        <td class="ability_name" th:text="${abilities.getAbility().getName()}"></td>
+                        <td th:text="${abilities.getAbility().getName()}"></td>
                         <div th:each="ability_info: ${abilities.getAbility().getEffect_entries()}">
                             <td class="td_ability_info" th:if="${ability_info.getLanguage().getName()} == 'en'" th:text="${ability_info.getShort_effect()}" th:data-hover="${ability_info.getEffect()}"></td>
                         </div>
