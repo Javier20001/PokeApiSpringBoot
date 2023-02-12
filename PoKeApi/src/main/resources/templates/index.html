@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-<head th:insert="~{layout/plantilla :: head}"></head>
+<head th:insert="~{layout/plantilla :: head(Index)}"></head>
 <body>
     <div class="body-container">
         <div th:if="${Pokemon == null}">
@@ -11,21 +11,12 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <div th:if="${Pokemon != null}">
-            <div class="container-img" th:style="'background-color:'+(${Pokemon.getColor()})+';'">
-                <img class="pokemon-img" th:src="${Pokemon.getSprites().getFront_default()}" >
-            </div>
-            <h2 class="H2-Pokemon-name" th:text="${Pokemon.getName()}"></h2>
-            <div class="container">
-                <div class="container-types">
-                <div class="conatiner-each">
-                    <div  th:each="types : ${Pokemon.getTypes()}">
-                        <div class="containerType" th:style="'background-color:'+(${types.getType().getColor()})+';'">
-                            <p th:text="${types.getType().getName()}"></p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
+
+            <section th:insert="~{layout/plantilla :: PokemonImg-Name}"></section>
+
+            
+            <section th:insert="~{layout/plantilla :: Types}"></section>
+
             <section th:insert="~{layout/plantilla :: TableAbilities}"></section>
             <section th:insert="~{layout/plantilla :: niveles}"></section>
         </div>

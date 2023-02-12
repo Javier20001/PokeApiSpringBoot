@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <head th:insert="~{layout/plantilla :: head(404)}"></head>
 </head>
 <body>
-    <h1>Este es un error 404 trata de volver</h1>
-    <a href="/">Go back to home page</a>
+    <div class="body-container">
+
+        <h1>Este es un error 404 trata de volver</h1>
+        <img th:src="@{C://Users//kuzni//OneDrive//Escritorio//Proyecto Api Pokemon//PoKeApi//src//main//resources//templates//404.jpg}">
+
+        <a href="/">Go back to home page</a>
+    </div>
 </body>
 </html>
