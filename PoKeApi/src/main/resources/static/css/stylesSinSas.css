@@ -126,3 +126,14 @@ h3{
     margin-bottom: 1rem;
 }
 
+.img500{
+    width: 100%;
+}
+
+.text-container{
+    display: flex;
+}
+.text{
+    margin-top: 20px;
+    text-align: center;
+}
