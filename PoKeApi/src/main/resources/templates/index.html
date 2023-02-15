@@ -4,21 +4,31 @@
 <body>
     <div class="body-container">
         <div th:if="${Pokemon == null}">
-            <h1 class="h1color" th:text="Bienvenido"></h1>
+            <div class="body-Con-Imagen ">
+                <section th:insert="~{layout/plantilla :: PokemonBuscador}"></section>
+                <div class="contenedor body-container">
+                    <div class="introduction-text">
+                        <div class="text-contenedor">
+                            <div class="imgRayoText">
+                                <img src="https://imgur.com/LGN7Kye.jpg">
+                            </div>
+                            <h2 class="indexTitle" th:text="Bienvenido.."></h2>
+                            <h3 class="indexText">a la ROTOMDEX, por favor inserta el nombre o id del pokemon que queres averiguar</h3>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
-        <form class="form-search" th:action="@{/traer}" method="get">
-            <input type="text" placeholder="Search" name="nombre">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        
         <div th:if="${Pokemon != null}">
-
-            <section th:insert="~{layout/plantilla :: PokemonImg-Name}"></section>
-
-            
-            <section th:insert="~{layout/plantilla :: Types}"></section>
-
-            <section th:insert="~{layout/plantilla :: TableAbilities}"></section>
-            <section th:insert="~{layout/plantilla :: niveles}"></section>
+            <div class="body-Sin-Imagen">
+                <section th:insert="~{layout/plantilla :: PokemonBuscador2}"></section>
+                <section th:insert="~{layout/plantilla :: PokemonImg-Name}"></section>
+                <section th:insert="~{layout/plantilla :: Types}"></section>
+                <section th:insert="~{layout/plantilla :: TableAbilities}"></section>
+                <section th:insert="~{layout/plantilla :: niveles}"></section>
+            </div>
         </div>
     </div>
 </body>

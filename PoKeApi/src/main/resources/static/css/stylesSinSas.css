@@ -1,19 +1,84 @@
 .body-container{
-    background-color: #595959;
+    
     height: 100vh;
 }
 
-.h1color{
-    text-align: center;
+.body-Sin-Imagen{
+    background-color: #595959;
+
+    height: 100vh;
+}
+
+.body-Con-Imagen{
+    height: 100vh;
+    background-size: 100%;
+    background-image: url(https://i.pinimg.com/236x/f6/08/e2/f608e2f46f8ab965fc5c74c191a0b593--pokemon.jpg?nii=t);
+}
+
+.contenedor{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5); */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.introduction-text{
+    padding-top: 80%;
+}
+
+.imgRayoText{
+    position: absolute;
+    margin: -54px 50px;
+}
+
+.text-contenedor{
+    margin: 0px 10px 0px;
+    background-color: #fee168;
+    border-radius: 10px;
+    border: 5px #ff9933 solid;
+}
+
+.indexTitle{
+    text-align: inherit;
+    padding: 0px 10px;
+}
+
+.indexText{
+    font-size: 20px;
+    padding: 0px 15px 0px;
 }
 
 .form-search{
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: nowrap;
+    position: fixed;
+    padding: 15%;
 }
+
+.contendor-navSearch_withPokemon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.conedor-imputs{
+    display: flex;
+    align-items: center;
+}
+
+.btn{
+    background-image:url(https://imgur.com/Ob0EAEx.png);
+    background-repeat:no-repeat;
+    height:50px;
+    width:50px;
+    background-size: 50px 50px;
+    background-position:center;
+}
+
+
 
 .H2-Pokemon-name{
     text-align: center;
@@ -32,7 +97,7 @@
 .container-each-niveles{
     display: flex;
     align-content: flex-start;
-    padding: 1px;
+    padding: 1px 5%;
     flex-wrap: wrap;
     flex-direction: column;
 }

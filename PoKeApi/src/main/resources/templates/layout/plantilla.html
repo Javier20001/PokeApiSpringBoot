@@ -18,6 +18,36 @@
 </head>
 
 <body>
+    <section th:fragment="PokemonBuscador">
+        <div class="Pokemon-nav-search">
+            <form class="form-search" th:action="@{/traer}" method="get">
+                <div class="conedor-imputs">
+                    <div>
+                        <input type="text" placeholder="Pokemon" name="nombre">
+                    </div>
+                    <div>
+                        <button class="btn" type="submit"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section th:fragment="PokemonBuscador2">
+        <div class="">
+            <form th:action="@{/traer}" method="get">
+                <div class="contendor-navSearch_withPokemon">
+                    <div>
+                        <input type="text" placeholder="Pokemon" name="nombre">
+                    </div>
+                    <div>
+                        <button class="btn" type="submit"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <section th:fragment="PokemonImg-Name">
         <div class="container-img" th:style="'background-color:'+(${Pokemon.getColor()})+';'">
             <img class="pokemon-img" th:src="${Pokemon.getSprites().getFront_default()}">
