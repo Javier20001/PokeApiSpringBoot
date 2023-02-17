@@ -22,11 +22,13 @@
         <div class="Pokemon-nav-search">
             <form class="form-search" th:action="@{/traer}" method="get">
                 <div class="conedor-imputs">
-                    <div>
-                        <input type="text" placeholder="Pokemon" name="nombre">
+                    <div class="contenedorImputPokemon">
+                        <input class="inputPokemon" type="text" placeholder="Pokemon" name="nombre">
                     </div>
                     <div>
-                        <button class="btn" type="submit"></button>
+                        <button class="btn" type="submit">
+                            <!-- <img  class="imgSearch" src="https://imgur.com/Ob0EAEx.png" alt=""> -->
+                        </button>
                     </div>
                 </div>
             </form>
