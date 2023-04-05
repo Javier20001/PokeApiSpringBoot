@@ -1,0 +1,10 @@
+.contenedorImagenPokemon{
+    margin-left: 20px;
+    width: 90%;
+    background-color: rgb(0, 230, 0);
+    border-radius: 10px;
+}
+
+.imagenPokemon{
+    width: 70%;
+}

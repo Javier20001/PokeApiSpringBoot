@@ -1,0 +1,12 @@
+.contenerdorAgregar{
+    padding: 20px 10px; 
+}
+.inputBuscar{
+    width: 70%;
+    height: 30px;
+    font-size: 100%;
+    text-align: center;
+}
+.buttonAgragar{
+    height: 35px;
+}
