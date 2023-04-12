@@ -56,7 +56,7 @@ public class PokemonServiceIMPL implements PokemonService {
             p = gson.fromJson(response.body(), Pokemon.class);
             setColorToPokemon(p);
             setAbilities(p);
-            System.out.println(p.getAbilities());
+            // System.out.println(p.getAbilities());
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

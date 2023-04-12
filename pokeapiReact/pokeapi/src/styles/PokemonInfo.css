@@ -8,3 +8,35 @@
 .imagenPokemon{
     width: 70%;
 }
+
+.pokemonTypesList{
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    list-style: none;
+}
+
+.pokemonAbilitiesList{
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    list-style: none;
+}
+
+.typesItems{
+    width: 80px;
+    height: 30px;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+.wall{
+    background-color: #16181c;
+    height: 3px;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.pokemonTypeTittle{
+    margin: 16px 0px 0px 0px;
+}

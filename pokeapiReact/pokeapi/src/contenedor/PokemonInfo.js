@@ -22,10 +22,16 @@ export const PokemonInfo = ({pokemon}) => {
         />
       </div>
       <h2>{pokemon.name}</h2>
-      {pokemon.types?.map((datos, index) => (
-        <p key={index}>{datos.type.name}</p> //los return flash es cuando solo tenes que retornar en una funcion fecha solo una linea de codigo
-      ))}
-      <ul>
+      <div className="wall"/>
+      <p className="pokemonTypeTittle">Pokemon Types</p>
+      <ul className="pokemonTypesList">
+        {pokemon.types?.map((datos, index) => (
+          <li className="typesItems" key={index} style={{backgroundColor : datos.type.color}}>{datos.type.name}</li> // los return flash es cuando solo tenes que retornar en una funcion fecha solo una linea de codigo
+        ))}
+      </ul>
+      <div className="wall"/>
+      <p className="pokemonTypeTittle" >Pokemon Abilities</p>
+      <ul className="pokemonAbilitiesList">
         {pokemon.abilities?.map((datos, index) => (
           <li key={index}>{datos.ability.name}</li>
         ))}
