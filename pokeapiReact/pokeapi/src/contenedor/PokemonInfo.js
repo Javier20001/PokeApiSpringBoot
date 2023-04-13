@@ -1,7 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Line } from 'rc-progress';
 import "../styles/PokemonInfo.css"
 
 export const PokemonInfo = ({pokemon}) => {
+
 
     console.log("hola",pokemon);
 
@@ -33,9 +35,25 @@ export const PokemonInfo = ({pokemon}) => {
       <p className="pokemonTypeTittle" >Pokemon Abilities</p>
       <ul className="pokemonAbilitiesList">
         {pokemon.abilities?.map((datos, index) => (
-          <li key={index}>{datos.ability.name}</li>
+          <li className="abilitiesItems" key={index}>{datos.ability.name}</li>
         ))}
       </ul>
+      <div className="wall"/>
+      <p className="pokemonTypeTittle" >Pokemon Stats</p>
+      <div className="pokemonStatsList">
+        {pokemon.stats?.map((datos,index)=>{
+              return(
+                <>
+                  <div className="pokemonStatContainer">
+                    <p className="statName">{datos.stat.name}</p>
+                    <Line className="pokemonStatsItem" percent={datos.base_stat} strokeWidth={3} trailWidth={2} strokeColor={pokemon.color} />
+                  </div>
+                </>
+              );
+            }
+          )
+        }
+      </div>
     </div>
   );
 };
