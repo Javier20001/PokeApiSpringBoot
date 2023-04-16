@@ -4,8 +4,7 @@ import { Line } from "rc-progress";
 import "../styles/PokemonInfo.css";
 
 export const PokemonInfo = ({ pokemon }) => {
-  console.log("hola", pokemon);
-
+  
   if (!pokemon) {
     return null; //si el pokemon es vacio entonces no hace una verga
   }
@@ -56,7 +55,7 @@ export const PokemonInfo = ({ pokemon }) => {
                     </div>
                   </td>
                   {datos.ability.effect_entries?.map((data) => {
-                    return data.language.name == "en" ? (
+                    return data.language.name === "en" ? (
                       <td>{data.short_effect}</td>
                     ) : null;
                   })}
