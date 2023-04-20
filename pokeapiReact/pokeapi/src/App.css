@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
 }
 
 .App-header {
@@ -15,4 +19,27 @@
 
 .contenedorImagenPokemon{
   background-color: attr(data-type color);
+}
+
+@font-face {
+  font-family: 'pokemonFont';
+  src:local('pokemonFont'), url(./fonts/PocketMonk-15ze.ttf);
+}
+
+h1{
+  font-family: pokemonFont;
+  margin: 0px;
+  font-size: 80px;
+  color: #ad9700;
+  text-shadow: -5px 6px blue;
+
+}
+
+p{
+  font-family: pokemonFont;
+  margin: 0px;
+  /* font-size: 80px; */
+  color: #ad9700;
+  text-shadow: -5px 6px blue;
+
 }

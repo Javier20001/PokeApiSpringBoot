@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-// import Table from "react-bootstrap/Table";
 import { Line } from "rc-progress";
 import "../styles/PokemonInfo.css";
 
@@ -25,10 +24,9 @@ export const PokemonInfo = ({ pokemon }) => {
       <div className="wall" />
       <p className="pokemonTypeTittle">Pokemon Types</p>
       <ul className="pokemonTypesList">
-        {pokemon.types?.map((datos, index) => (
+        {pokemon.types?.map((datos) => (
           <li
             className="typesItems"
-            key={index}
             style={{ backgroundColor: datos.type.color }}
           >
             {datos.type.name}
@@ -65,13 +63,6 @@ export const PokemonInfo = ({ pokemon }) => {
           })}
         </tbody>
       </table>
-
-      {/* <p className="pokemonTypeTittle" >Pokemon Abilities</p>
-      <ul className="pokemonAbilitiesList">
-        {pokemon.abilities?.map((datos, index) => (
-          <li className="abilitiesItems" key={index}>{datos.ability.name}</li>
-        ))}
-      </ul> */}
 
       <div className="wall" />
       <p className="pokemonTypeTittle">Pokemon Stats</p>

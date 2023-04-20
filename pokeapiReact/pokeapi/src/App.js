@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 import Buscador from "./contenedor/Buscador";
+// import Background from "./backgroundd.gif"
 import { Error } from "./contenedor/Error";
 import { PokemonInfo } from "./contenedor/PokemonInfo";
 
@@ -35,6 +36,8 @@ function App() {
 
   return (
     <div className="App">
+      <h1>PoKedeX</h1>
+      {/* <p>Bienvenido a la PoKedeX, aqui podras encotrar cualquier pokemon que quieras, solo introduci su id/numero o su nombre</p> */}
       <Buscador onSubmit={BuscarPorNombre} />
       {error !== 500?
         <PokemonInfo pokemon={pokemon} />
